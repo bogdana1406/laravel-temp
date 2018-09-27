@@ -8,11 +8,11 @@ class Car extends Model
 {
     public function brand()
     {
-        return $this->hasOne(Brand::class);
+        return $this->belongsTo(Brand::class);
     }
 
     public function engine()
     {
-        return $this->hasOne(Engine::class);
+        return $this->belongsTo(Engine::class);
     }
 }

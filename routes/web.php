@@ -11,15 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
-//Route::view('/', 'main');
-//Route::view('/products', 'products');
+Route::view('/', 'welcome');
+Route::get('/show', 'ShowPageController@index')->name('show-page');
 //Route::view('/product', 'product');
 //Route::view('/cart', 'cart');
 //Route::view('/checkout', 'checkout');
+
+
 
 
 Route::group(['prefix' => 'admin'], function () {

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEnginesTable extends Migration
+class AddImageToCarsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateEnginesTable extends Migration
      */
     public function up()
     {
-        Schema::create('engines', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name')->unique();
-            $table->timestamps();
+        Schema::table('cars', function (Blueprint $table) {
+            $table->string('image')->nullable()->after('price');
         });
     }
 
@@ -27,6 +25,8 @@ class CreateEnginesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('engines');
+        Schema::table('cars', function (Blueprint $table) {
+            $table->dropColumn('image');
+        });
     }
 }
